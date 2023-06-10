@@ -59,5 +59,5 @@ func GetDB() DBConfig {
 }
 
 func GetServerPort() string {
-return cfg.API.Port
+	return cfg.API.Port
 }
