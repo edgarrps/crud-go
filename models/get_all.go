@@ -16,7 +16,11 @@ func GetAll() (todos []Todo, err error) {
 
 	for rows.Next() {
 		var todo Todo
+
 		err = rows.Scan(&todo.ID, &todo.Title, &todo.Description, &todo.Done)
+		if err != nil {
+			continue
+		}
 	}
 	return
 }
