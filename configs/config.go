@@ -40,10 +40,10 @@ func Load() error {
 
 	cfg = new(config)
 
-	cfg.Api = APIConfig{
+	cfg.API = APIConfig{
 		Port: viper.GetString("api.port"),
 	}
-	cfg.DBConfig = DBConfig{
+	cfg.DB = DBConfig{
 		Host:     viper.GetString("database.host"),
 		Port:     viper.GetString("database.port"),
 		Item:     viper.GetString("database.item"),
