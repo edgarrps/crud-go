@@ -1,7 +1,18 @@
 package handlers
 
-import "net/http"
+import (
+	"encoding/json"
+	"log"
+	"net/http"
+
+	"github.com/edgarrps/crud-go/models"
+)
 
 func list(w http.ResponseWriter, r *http.Request) {
-	return
+	todos, err := models.GetAll()
+	if err != nil {
+		log.Printf("Erro ao obter registros: %v", err)
+	}
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(todos)
 }
