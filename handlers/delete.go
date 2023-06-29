@@ -19,7 +19,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	rows, err := models.Delete(int64(id))
+	rows, err := models.Delete(int64(id), models.Todo{})
 	if err != nil {
 		log.Printf("Erro ao remover registro: %v", err)
 		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
